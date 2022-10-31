@@ -43,14 +43,5 @@ jobs:
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: Lint PHP Sources
-        run: composer run-script ci:lint
-
-      - name: PHP Code Sniffer
-        run: composer run-script ci:sniff
-
-      - name: Static Analysis
-        run: composer run-script ci:psalm
-
       - name: Unit Tests
         run: composer run-script ci:tests
